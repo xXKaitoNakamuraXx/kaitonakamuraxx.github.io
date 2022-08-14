@@ -26,7 +26,7 @@ I deciede due to limited funds and spare hardware I would be virtualizing this i
 ---
 1. First things first you will need the ISO. Go to [PFSense](https://www.pfsense.org/download/) and download it.
 
-![[/assets/images/pfsense/pfsense-download.png]]
+![](/assets/images/pfsense/pfsense-download.png)
 
 - ensure to set the installer to **DVD Image (ISO) Installer**.
 
@@ -43,11 +43,11 @@ I deciede due to limited funds and spare hardware I would be virtualizing this i
 2. setup is the same as the given instructions however i needed to use the ethernet port on the MotherBoard for both proxmox and the wan of the PFSense VM.
 3. so when going through the setup instead of setting up both vmbr1 & 2 i only create vmbr1 using the ethernet dongle as the port
 
-![[/assets/images/proxmox/pve-network-bridge.png]]
+![](/assets/images/proxmox/pve-network-bridge.png)
 
 - i had to ensure that the bridge ports section states my ethernet adapters name located under the network tab for proxmox
 
-![[/assets/images/proxmox/pve-network-tab.png]]
+![](/assets/images/proxmox/pve-network-tab.png)
 
 4. now unlike the instructions provided by PFSense for installation i used vmbr0 as the WAN and vmbr1 for the LAN. the reason why is so that i have a seperate virtualized router that is still able to provide outside internet to the VMs behind it. this way i can still manage it over my ISP provided router along with internaly via the VMs or hardlined to the VM.
 
