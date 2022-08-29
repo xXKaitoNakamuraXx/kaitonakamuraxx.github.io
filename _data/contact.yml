@@ -1,5 +1,7 @@
 #  The contact options.
-
+-
+  type: tryhackme
+  icon: 'fab fa-tryhackme'
 -
   type: github
   icon: 'fab fa-github'
