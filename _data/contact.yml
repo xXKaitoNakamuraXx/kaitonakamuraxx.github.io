@@ -1,9 +1,5 @@
 #  The contact options.
 -
-  type: tryhackme
-  icon: 'fab fa-cloud'
-  url:  'https://tryhackme.com/p/B4ndw1d7h'
--
   type: github
   icon: 'fab fa-github'
 #-
