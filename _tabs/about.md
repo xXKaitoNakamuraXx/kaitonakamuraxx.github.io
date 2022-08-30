@@ -17,6 +17,8 @@ If you would like to join / follow me in my journey, or just chat n' hack feel f
 Ranks almost in the 4 digits!!
 ![](/assets/images/thm/B4ndw1d7h.png)
 
+Here are my primary areas of knowledge so far. While my stats are starting to looking good I still have plenty to learn across the board and cant wait to learn all those "unknown unknowns" ;P
 
-Here are my primary areas of knowledge so far. While my stats are starting to looking good I still have plenty to learn across the board
+---
+
 ![](/assets/images/thm/skills.png)

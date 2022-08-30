@@ -1,5 +1,5 @@
 ---
-title: Windows Server 2022 Install
+title: Windows Server 2019 Install
 date: 2022-08-26 12:00:00 -0700
 categories: [homelab, server]
 tags: [windows,active-directory,dns] # TAG names should always be lowercase
