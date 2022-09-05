@@ -52,7 +52,7 @@ Open remmina and click the new connection icon.
 Next change the protocol to RDP and add all required credentials and connect.
 ![](/assets/images/thm/kerberos/remmina2.png)
 once connected open a command prompt, navigate to the Downloads directory, and run this command: ( This command runs rubeus and calls the harvest command. this collects the tickets being sent to the KDC or Key distribution center, and checks every 30 seconds)
-```cmd
+```shell
 Rubeus.exe harvest /interval:30
 ```
 
@@ -63,13 +63,13 @@ You should see the output bellow.
 With this output you will be able to answer the task questions however please continue with the task instructions to learn password spraying via rubeus.
 
 Before attempting the password spraying we will need to add the machine to the windows hosts file.
-``` cmd
-echo 10.10.250.63 CONTROLLER.local >> C:\Windows\System32\drivers\etc\hosts
+``` shell
+echo $IP CONTROLLER.local >> C:\Windows\System32\drivers\etc\hosts
 ```
 
 Once added we can begin the attack.
 The following command calls the brute function to start a brute force attack, and passes the password variable along with the noticket option to spray the given password to all available tickets to see if their is a match. 
-```cmd
+```shell
 Rubeus.exe brute /password:Password1 /noticket
 ```
 
@@ -87,7 +87,7 @@ As stated in the task "Kerberoasting allows a user to request a service ticket f
 Lets start the roast!
 
 Again we start with rubeus and of course to start the roast we call kerberoast.
-```cmd
+```shell
 Rubeus.exe kerberoast
 ```
 
@@ -121,7 +121,7 @@ GetUserSPNs.py controller.local/Machine1:Password1 -dc-ip 10.10.205.63 -request
 For this task we will be attacking in another popular method as-rep roasting. As discussed in the task " AS-REP Roasting dumps the krbasrep5 hashes of user accounts that have Kerberos pre-authentication disabled." to exploit this we must do the following:
 
 Execute this on the target machine. same as kerberoasting.
-```cmd
+```shell
 Rubeus.exe asreproast
 ```
 
