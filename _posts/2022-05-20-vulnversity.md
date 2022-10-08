@@ -2,7 +2,7 @@
 title: THM Vulnversity Writeup
 date: 2022-05-20 12:00:00 -0700
 categories: [tryhackme,ctf]
-tags: [thm,ctf,writeup,hacking] # TAG names should always be lowercase
+tags: [writeup,hacking,web,linux] # TAG names should always be lowercase
 ---
 # Vulnversity write-up
 ---

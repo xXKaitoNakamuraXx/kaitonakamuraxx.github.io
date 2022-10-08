@@ -2,7 +2,7 @@
 title: Nellis AFB InfoSec CTF
 date: 2022-04-29 12:00:00 -0700
 categories: [ctf]
-tags: [hacking,cybersecurity,ctf,writeup] # TAG names should always be lowercase
+tags: [network,snmp,web,hacking,linux] # TAG names should always be lowercase
 ---
 # Nellis AFB InfoSec CTF 20220429
 ## "Attack & Respond"

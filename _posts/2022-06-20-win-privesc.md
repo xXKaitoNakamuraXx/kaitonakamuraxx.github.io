@@ -2,7 +2,7 @@
 title: THM Windows PrivEsc 2022
 date: 2022-06-20 12:00:00 -0700
 categories: [tryhackme,ctf]
-tags: [thm,ctf,writeup,hacking] # TAG names should always be lowercase
+tags: [writeup,hacking,windows] # TAG names should always be lowercase
 ---
 # Windows Privlage Escelation Writeup
 ---

@@ -2,7 +2,7 @@
 title: THM Attacktive Directory Writeup
 date: 2022-08-29 12:00:00 -0700
 categories: [tryhackme,ctf]
-tags: [thm,ctf,writeup,hacking] # TAG names should always be lowercase
+tags: [writeup,hacking,active-directory] # TAG names should always be lowercase
 ---
 # Attacktive Directory 
 ---
