@@ -15,7 +15,9 @@ Every day I strive to learn something new or make things better with the knowled
 If you would like to join / follow me in my journey, or just chat n' hack feel free to follow or message me on [Linkedin](https://www.linkedin.com/in/brian-biddle-165b8b211) or [TryHackMe](https://tryhackme.com/p/B4ndw1d7h)
 
 Ranks almost in the 4 digits!!
-![](/assets/images/thm/B4ndw1d7h.png)
+
+<script src="https://tryhackme.com/badge/725971"></script>
+
 
 Here are my primary areas of knowledge so far. While my stats are starting to looking good I still have plenty to learn across the board and cant wait to learn all those "unknown unknowns" ;P
 
