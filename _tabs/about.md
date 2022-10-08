@@ -2,11 +2,8 @@
 title: About
 icon: fas fa-info-circle
 order: 4
-customjs: 
-- https://tryhackme.com/badge/725971
 ---
 
-# About
 ---
 
 I am currently working as an Integrated Avionics specialist on MQ-9's with the USAF. Maintaining and managing RHEL and integrated Unix systems on and off the aircraft.
@@ -19,5 +16,5 @@ If you would like to join / follow me in my journey, or just chat n' hack feel f
 Here are my primary areas of knowledge so far. While my stats are starting to looking good I still have plenty to learn across the board and cant wait to learn all those "unknown unknowns" ;P
 
 ---
-
+![](/assets/images/thm/B4ndw1d7h.png)
 ![](/assets/images/thm/skills.png)
