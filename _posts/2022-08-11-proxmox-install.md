@@ -11,7 +11,7 @@ tags: [proxmox,hosting,servers] # TAG names should always be lowercase
 
 ## Reason
 ---
-As discussed in my [Homelab post](https://fae-computing.tk/posts/homelab/) as many who want to start off with homelab, money is an issue. therefore virtualization is our best friend. After trying out different hypervisors such as hyper-v and vmware's ESXI. I settled on Proxmox due to its prevelence in the homelab space and its ease of use. main reason is that it is free lol.
+As discussed in my [Homelab post](https://xxkaitonakamuraxx.github.io/posts/homelab/) as many who want to start off with homelab, money is an issue. therefore virtualization is our best friend. After trying out different hypervisors such as hyper-v and vmware's ESXI. I settled on Proxmox due to its prevelence in the homelab space and its ease of use. main reason is that it is free lol.
 
 
 

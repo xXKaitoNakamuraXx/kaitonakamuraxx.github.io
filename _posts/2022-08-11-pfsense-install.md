@@ -16,7 +16,7 @@ I wanted to have my home network segregated so that I wont have to worry about a
 
 ## Overview
 ---
-here i will be covering the install of PFSense on Proxmox and not the installation of proxmox its self. please see my [Proxmox Install](https://fae-computing.tk/posts/proxmox-install/) before i begin i will say that my situation is less than ideal but if their is a will their is a way! 
+here i will be covering the install of PFSense on Proxmox and not the installation of proxmox its self. please see my [Proxmox Install](https://xxkaitonakamuraxx.github.io/posts/proxmox-install/) before i begin i will say that my situation is less than ideal but if their is a will their is a way! 
 
 I deciede due to limited funds and spare hardware I would be virtualizing this in proxmox and using it as the main router for my homelab both VMs and Hardware. Doing this was not difficult at all. best part if a config I make bricks it i have snapshots for a simple and easy restore to my last good configs. keeping my network uptime as high as possible. enough of the semantics lets get to the bread and butter!
 
@@ -33,7 +33,7 @@ I deciede due to limited funds and spare hardware I would be virtualizing this i
 2. now upload the ISO to Proxmox
 
 3. Follow the guide given by PFSense for [instilation with Proxmox](https://docs.netgate.com/pfsense/en/latest/recipes/virtualize-proxmox-ve.html) for a working standard.
-	- given my special situation with how i need to setup my network highlighted [here](https://fae-computing.tk/posts/homelab/#Networking) I needed to make a few adjustments.
+	- given my special situation with how i need to setup my network highlighted [here](https://xxkaitonakamuraxx.github.io/posts/homelab/#Networking) I needed to make a few adjustments.
 
 
 

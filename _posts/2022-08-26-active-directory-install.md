@@ -15,7 +15,7 @@ Today I will be going over my Windows Server installation. I will be using this 
 1. To start it all off we will need the ISO for our install.
 	1. You can download it [here](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2022).
 	2. This will only be able to be used for 180 days however I will outline a way to extend this timer if needed.
-2. Once downloaded you can either go bare metal or virtual. for me I will be installing this on [Proxmox](https://fae-computing.tk/posts/proxmox-install/) so for this I will need to upload the ISO to the server over the web interface.
+2. Once downloaded you can either go bare metal or virtual. for me I will be installing this on [Proxmox](https://xxkaitonakamuraxx.github.io/posts/proxmox-install/) so for this I will need to upload the ISO to the server over the web interface.
 
 ![](/assets/images/proxmox/os-upload.png)
 
