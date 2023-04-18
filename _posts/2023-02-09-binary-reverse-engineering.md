@@ -23,9 +23,9 @@ I offered to take a look at the program and see if I could do anything about it.
 
 First, I pulled a copy of the program from work. Then, I ran strings on the program using different encoding methods to see if anything would come out. I saw no hard-coded registration key tho I did find a few helpful strings.
 
-![[assets/images/batt-program/batt-strings.png]]
+![](assets/images/batt-program/batt-strings.png)
 And
-![[assets/images/batt-program/batt-strings-login-creds.png]]
+![](assets/images/batt-program/batt-strings-login-creds.png)
 
 Seeing these I figured that their is a way to bypass the check somehow for the key and the credentials for the Admin user was "12345".
 
@@ -35,11 +35,11 @@ Over time, I fiddled around and explored the different functions and what all I 
 
 After mindlessly looking through the assembly and functions that Ghidra was able to parse out, I remembered from the strings command earlier that I saw some things that were describing a registration key, and completing the registration. I thought to myself, "I found it!!" and then had no idea where to go from there.
 
-![[assets/images/batt-program/ghidra-success-calls.png]]
+![](assets/images/batt-program/ghidra-success-calls.png)
 
 When hovering over the calls it showed me the function associated with it.
 
-![[assets/images/batt-program/ghidra-popup.png]]
+![](assets/images/batt-program/ghidra-popup.png)
 
 Clicking it it brought me to that section of the code and i began to look around and try and make sense of it.
 
@@ -49,11 +49,11 @@ I tried it on multiple different calls, exporting the program each time, attempt
 
 I had to change this :
 
-![[assets/images/batt-program/ghidra-code-before.png]]
+![](assets/images/batt-program/ghidra-code-before.png)
 
 To this :
 
-![[assets/images/batt-program/ghidra-code-after.png]]
+![](assets/images/batt-program/ghidra-code-after.png)
 
 I know the better solution would be to rewrite a new management software. However, as the system is fully offline and there is no viable threat, it will be fine. Plus, this gave me a whole new skill to learn more about, along with massive respect from higher-ups.
 

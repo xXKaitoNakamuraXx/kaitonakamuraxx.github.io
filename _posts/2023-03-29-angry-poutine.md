@@ -31,12 +31,12 @@ For reference I've written them down here.
 
 Given the tasks I now open the PCAP in Wireshark. 
 
-![[assets/images/pcap-images/angry-poutine/initial-wireshark.png]]
+![](assets/images/pcap-images/angry-poutine/initial-wireshark.png)
 
 1. First thing i did is go to the statistics tab > conversations, to get a view of relevant traffic.
 	I start looking at the info in the TCP tab, and see many IPs that are using port 80. I decide to start their due to traffic nowadays normally being sent over port 443 using SSL/TLS.
 	
-![[assets/images/pcap-images/angry-poutine/convo-screen.png]]
+![](assets/images/pcap-images/angry-poutine/convo-screen.png)
 
 2. I sort the traffic out using the amount of packets, and begin on the one with the most traffic. Taking a glance looking at the lists for anything that would stick out like GET or POST requests I saw something odd that narrowed my search down to this IP: 
 	- 194.62.42.206
@@ -55,11 +55,11 @@ http://simpsonsavingss.com/bmdff/BhoHsCtZ/MLdmpfjaX/5uFG3Dz7yt/date1?BNLv65=pAAS
 5. I then start filtering for the hosts information using the IP address of the victim, found while looking at the packet that made the get request, and filters for the following: 
 - kerberos.CNameString for username and host name information (could have used nbns traffic to find the hostname as well)
 
-![[assets/images/pcap-images/angry-poutine/kerberos-cnamestring.png]]
+![](assets/images/pcap-images/angry-poutine/kerberos-cnamestring.png)
 
 - useragent string in the GET request for the host OS and MAC(Windows NT 10.0 aka Windows 10)
 
-![[assets/images/pcap-images/angry-poutine/useragent.png]]
+![](assets/images/pcap-images/angry-poutine/useragent.png)
 
 6. Once I gathered all the host's info I extracted the file by going to File > Export Objects > HTTP ..., selected the file associated with the URL found previously and grabbed an md5sum of it using the commandline .
 
@@ -84,7 +84,7 @@ eed363fc4af7a9070d69340592dcab7c78db4f90710357de29e3b624aa957cf8
 
 8. Looking back at the TCP tab under conversations I see that 2 IPs mentioned in the virus total report are in fact talking back and forth in the PCAP.
 
-![[assets/images/pcap-images/angry-poutine/mal-ips.png]]
+![](assets/images/pcap-images/angry-poutine/mal-ips.png)
 
 This is pretty much all for this analysis. Here is how the following report might look.
 (Never did this before so I had [ChatGPT](https://chat.openai.com/chat) draft a template for me to fill out LOL. Amazing resource BTW ;P)
@@ -145,11 +145,11 @@ The malware was analyzed using manual techniques with Wireshark. The analysis re
 - 94.158.245.52:443
 Sending encrypted data over the network.
 
-![[assets/images/pcap-images/angry-poutine/virustotal-site.png]]
+![](assets/images/pcap-images/angry-poutine/virustotal-site.png)
 
-![[assets/images/pcap-images/angry-poutine/virustotal-app-hash.png]]
+![](assets/images/pcap-images/angry-poutine/virustotal-app-hash.png)
 
-![[assets/images/pcap-images/angry-poutine/mal-ips.png]]
+![](assets/images/pcap-images/angry-poutine/mal-ips.png)
 
 Recommendations:
 
