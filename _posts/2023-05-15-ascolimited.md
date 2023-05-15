@@ -23,13 +23,14 @@ Today I will be sharing another Threat Hunting/Traffic Analysis post and some of
 For this capture, I started off how I normally would, trying to get a full overview of the capture in Wireshark.
 To help me with this, I created a few coloring rules to spot specific types of traffic that could be considered malicious or odd.
 
-- TCP Handshake : ***tcp.flags.syn == 1***
-- IP Lookup : ***dns.qry.name contains "ip"***
-- Client Hello : ***tls.handshake.type == 1***
-- Filtered GET/POST Requests : ***(http.request.method == "GET" ) && !(http.request.uri contains "/msdownload/update/") || (http.request.method == "POST" ) ***
-- Host Discovery : ***(icmp.type == 3 && icmp.code == 2) || (icmp.type == 8 || icmp.type == 0) || (tcp.dstport == 7) || (udp.dstport == 7) || arp.dst.hw_mac == 00:00:00:00:00:00***
-- Nmap Scans : ***(tcp.flags.syn == 1 && tcp.flags.ack == 0 && tcp.window_size<=1024) || (tcp.flags.syn == 1 && tcp.flags.ack == 0 && tcp.window_size>1024) || (tcp.flags == 0) || (tcp.flags == 0x001) || (tcp.flags.fin == 1 && tcp.flags.push == 1&&tcp.flags.urg == 1) || (icmp.type == 3 && icmp.code == 3)***
-- Network Attacks : ***(arp.duplicate-address-detected || arp.duplicate-address-frame) || (icmp && data.len > 48) || (dtp || vlan.too_many_tags) || (tcp.analysis.lost_segment || tcp.analysis.retransmission)***
+- TCP Handshake : ```tcp.flags.syn == 1```
+
+- IP Lookup : ```dns.qry.name contains "ip"```
+- Client Hello : ```tls.handshake.type == 1```
+- Filtered GET/POST Requests : ```(http.request.method == "GET" ) && !(http.request.uri contains "/msdownload/update/") || (http.request.method == "POST" )```
+- Host Discovery : ```(icmp.type == 3 && icmp.code == 2) || (icmp.type == 8 || icmp.type == 0) || (tcp.dstport == 7) || (udp.dstport == 7) || arp.dst.hw_mac == 00:00:00:00:00:00```
+- Nmap Scans : ```(tcp.flags.syn == 1 && tcp.flags.ack == 0 && tcp.window_size<=1024) || (tcp.flags.syn == 1 && tcp.flags.ack == 0 && tcp.window_size>1024) || (tcp.flags == 0) || (tcp.flags == 0x001) || (tcp.flags.fin == 1 && tcp.flags.push == 1&&tcp.flags.urg == 1) || (icmp.type == 3 && icmp.code == 3)```
+- Network Attacks : ```(arp.duplicate-address-detected || arp.duplicate-address-frame) || (icmp && data.len > 48) || (dtp || vlan.too_many_tags) || (tcp.analysis.lost_segment || tcp.analysis.retransmission)```gi
 
 These rules should help with your task. Right away, I could see the external IP lookup and started exploring it further.
 ![[/assets/images/pcap-images/ascolimited/ws-ip-lookup.png]]
