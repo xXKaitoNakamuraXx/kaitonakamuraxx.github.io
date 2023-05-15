@@ -32,29 +32,29 @@ To help me with this, I created a few coloring rules to spot specific types of t
 - Network Attacks : ```(arp.duplicate-address-detected || arp.duplicate-address-frame) || (icmp && data.len > 48) || (dtp || vlan.too_many_tags) || (tcp.analysis.lost_segment || tcp.analysis.retransmission)```gi
 
 These rules should help with your task. Right away, I could see the external IP lookup and started exploring it further.
-![](assets/images/pcap-images/ascolimited/ws-ip-lookup.png)
+![](/assets/images/pcap-images/ascolimited/ws-ip-lookup.png)
 
 I started seeing strange GET/POST requests that were shown alongside an ARP scan looking for hosts.
 GET/POST requests
-![](assets/images/pcap-images/ascolimited/ws-get-post.png)
+![](/assets/images/pcap-images/ascolimited/ws-get-post.png)
 ARP Scan
-![](assets/images/pcap-images/ascolimited/ws-arp-scan.png)
+![](/assets/images/pcap-images/ascolimited/ws-arp-scan.png)
 
 I exported the downloaded files and ran them through VirusTotal and AlienVault. While some files did not trigger an alert, others did. As a result, any files downloaded from the same source became suspicious. Here are the following hashes from the exported files.
-![](assets/images/pcap-images/ascolimited/file-hashes.png)
+![](/assets/images/pcap-images/ascolimited/file-hashes.png)
 
 After completing the manual analysis, I like to go through the process again using IDS/IPS solutions and create rules to detect the identified threats or check for pre-existing rules to understand how they are detected.
 
 Using Brim, a data management tool similar to Splunk, with its default Suricata alerts, it instantly detected and alerted me to the malicious traffic.
 
 Hancitor traffic
-![](assets/images/pcap-images/ascolimited/hanicator.png)
+![](/assets/images/pcap-images/ascolimited/hanicator.png)
 
 Flicker Stealer traffic
-![](assets/images/pcap-images/ascolimited/flicker-stealer.png)
+![](/assets/images/pcap-images/ascolimited/flicker-stealer.png)
 
 Cobalt Strike traffic
-![](assets/images/pcap-images/ascolimited/cobalt-strike.png)
+![](/assets/images/pcap-images/ascolimited/cobalt-strike.png)
 
 After further research, I identified the matches between the traffic and malware. I proceeded to fingerprint and match them to the MITRE ATT&CK framework.
 
@@ -100,27 +100,27 @@ Other indicators
 ## Notes
 ---
 Given alerts from excersize:
-![](assets/images/pcap-images/ascolimited/2021-02-08-traffic-analysis-exercise-alerts.jpg)
+![](/assets/images/pcap-images/ascolimited/2021-02-08-traffic-analysis-exercise-alerts.jpg)
 
 #### VirusTotal Details
 Cobalt strike:
-![](assets/images/pcap-images/ascolimited/6Aov_virustotal.png)
+![](/assets/images/pcap-images/ascolimited/6Aov_virustotal.png)
 
 Flicker Stealer:
-![](assets/images/pcap-images/ascolimited/6lhjgfdghj-virustotal.png)
+![](/assets/images/pcap-images/ascolimited/6lhjgfdghj-virustotal.png)
 
 Hancitor:
-![](assets/images/pcap-images/ascolimited/vt-hancitor.png)
+![](/assets/images/pcap-images/ascolimited/vt-hancitor.png)
 
 #### Generated alerts from Brim
 Hancitor traffic
-![](assets/images/pcap-images/ascolimited/hanicator.png)
+![](/assets/images/pcap-images/ascolimited/hanicator.png)
 
 Flicker Stealer traffic
-![](assets/images/pcap-images/ascolimited/flicker-stealer.png)
+![](/assets/images/pcap-images/ascolimited/flicker-stealer.png)
 
 Cobalt Strike traffic
-![](assets/images/pcap-images/ascolimited/cobalt-strike.png)
+![](/assets/images/pcap-images/ascolimited/cobalt-strike.png)
 
 ## Conclusion
 ---
