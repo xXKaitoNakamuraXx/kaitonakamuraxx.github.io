@@ -57,6 +57,11 @@ Cobalt Strike traffic
 ![](/assets/images/pcap-images/ascolimited/cobalt-strike.png)
 
 After further research, I identified the matches between the traffic and malware. I proceeded to fingerprint and match them to the MITRE ATT&CK framework.
+[Hancitor](https://attack.mitre.org/software/S0499/)
+Flicker Stealer :
+- [T1567](https://attack.mitre.org/techniques/T1567/)
+- [T1119](https://attack.mitre.org/techniques/T1119/)
+[Cobalt Strike](https://attack.mitre.org/software/S0154/)
 
 Here is my completed report on the subject.
 
