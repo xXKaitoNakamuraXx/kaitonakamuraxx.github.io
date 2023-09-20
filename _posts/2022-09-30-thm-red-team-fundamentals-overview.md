@@ -47,19 +47,19 @@ Coming from a military background this room was very familiar to me. we often ha
 This was my favorite of the 5. While I knew what C2 did, I did not know all the in depth info that was provided. Now i will say that on Task 6 i was having a bit of trouble. As much as I wanted to learn how to use Armitage I could not figure out how to set it up on my machine nor use the provided one in the Attackbox. the error i consistently received forums said that it was deprecated and that could be the reason it would not load or install properly. I ultimately decided to go ahead and just use what i know best and go old school CLI and just use metasploit. if you would like to see what i did to get around it please continue if you don't want spoilers continue to the next section.
 
 the first thing i did as it stated in the task was an nmap scan of the IP to see what services where open.
-![](assets/images/thm/red-team/nmap.png)
+![](/assets/images/thm/red-team/nmap.png)
 i see that smb is available and that the os is win7 and the machines name was ted-pc. while reading it mentioned eternal blue, and having exploited this vulnerability before in the blue room ctf.
 
 once exploited i dumped the user hashes to answer the questions by using
 command
 
-![](assets/images/thm/red-team/meterpreter.png)
+![](/assets/images/thm/red-team/meterpreter.png)
 
 and for the user flags we can spawn a shell with meterpreter as system and get both located in their respective desktop directories
 
-![](assets/images/thm/red-team/root-flag.png)
+![](/assets/images/thm/red-team/root-flag.png)
 
-![](assets/images/thm/red-team/user-flag.png)
+![](/assets/images/thm/red-team/user-flag.png)
 
 # Conclusion
 ---

@@ -26,13 +26,13 @@ There are four main components:
 
 For you visual learners out there here is a simple diagram of how it works:
 
-![](assets/images/twingate/twingate1.drawio.png)
+![](/assets/images/twingate/twingate1.drawio.png)
 
 In your network setup, you'll be hosting the Twingate connector. When a client seeks to connect to the network, it must first satisfy the security and authentication requirements specified in the Twingate controller. Once these prerequisites are met, the client shares its authentication token with the relay. The relay then matches the incoming NAT connection with the authenticated connector's NAT connection, effectively establishing a secure TLS tunnel between them. This secure tunnel allows the user to access designated resources, as granted by the controller's administrator.
 
 After the connection is established, your network configuration will appear as follows:
 
-![](assets/images/twingate/twingate2.drawio.png)
+![](/assets/images/twingate/twingate2.drawio.png)
 
 No need for port forwarding, firewall configurations, or intricate IPTable adjustments to make it function. It simply works.
 
@@ -47,72 +47,72 @@ I primarily run Linux-based servers and clients on my network, so my focus will 
 
 ---
 To kick things off, let's head over to Twingate's website at [https://www.twingate.com/](https://www.twingate.com/) and give it a try for free.
-![](assets/images/twingate/twingate1.png)
+![](/assets/images/twingate/twingate1.png)
 
 
 **Step 1: Sign Up**
 
 Begin by visiting the Twingate website at [https://www.twingate.com/](https://www.twingate.com/) and sign up for an account.
-![](assets/images/twingate/twingate2.png)
+![](/assets/images/twingate/twingate2.png)
 
 **Step 2: Account Details**
 
 Upon entering the Twingate platform, you'll be prompted to provide your information. Don't worry if you're not representing a business; you can simply enter the desired name and select "Less than 100 employees." 
-![](assets/images/twingate/twingate3.png)
+![](/assets/images/twingate/twingate3.png)
 
 **Step 3: Twingate Dashboard**
 
 Now that you're inside your Twingate dashboard, as an admin, you have full control to create, modify, and manage everything you need. To start, let's create a new network by clicking the "Add" button. 
-![](assets/images/twingate/twingate4.png)
+![](/assets/images/twingate/twingate4.png)
 
 **Step 4: Network Type**
 
 Specify the type of network you want to create, whether it's on-premises or in the cloud.
-![](assets/images/twingate/twingate5.png)
+![](/assets/images/twingate/twingate5.png)
 
 **Step 5: Deploying Connectors**
 
 Once your network is created, click on any of the connectors to deploy. It doesn't matter which one; deploying both provides redundancy in case one container goes down.
-![](assets/images/twingate/twingate6.png)
+![](/assets/images/twingate/twingate6.png)
 
 **Step 6: Docker Deployment**
 
-For this installation, we'll be using Docker. While other methods are available, Docker is often the most straightforward and efficient choice. ![[assets/images/twingate/twingate7.png]]
+For this installation, we'll be using Docker. While other methods are available, Docker is often the most straightforward and efficient choice. ![[/assets/images/twingate/twingate7.png]]
 
 After selecting Docker, generate the required tokens. These tokens are essential for connecting your connector and client through the relay, ensuring secure access to trusted users. 
-![](assets/images/twingate/twingate8.png)
+![](/assets/images/twingate/twingate8.png)
 
 You can skip the DNS configuration unless you have specific requirements. For this tutorial, we'll skip it. In Step 4, you'll copy and paste the provided command into your Docker host. If you need help setting up a Docker host, you can refer to [this tutorial](https://xxkaitonakamuraxx.github.io/posts/docker-setup/)for guidance on Proxmox or any other Linux-based server. 
-![](assets/images/twingate/twingate9.png)
+![](/assets/images/twingate/twingate9.png)
 
 **Step 7: Confirmation**
 
 After executing the command on your Docker host, your dashboard should display a confirmation message after a short wait. This indicates that your Twingate setup is ready to use. However, at this point, you have an empty connection. This is where the concept of Zero Trust comes into play; nothing is allowed unless explicitly permitted. Let's add some resources and set permissions.
-![[assets/images/twingate/twingate10.png]]
+![[/assets/images/twingate/twingate10.png]]
 
 **Step 8: Adding Resources**
 
-Click "Create Resource" to begin. ![[assets/images/twingate/twingate11.png]]
+Click "Create Resource" to begin. ![[/assets/images/twingate/twingate11.png]]
 
 **Step 9: Resource Details**
 
 Here, you'll see a prompt to add the local IPv4 address or domain name of the machine you want to access. 
-![](assets/images/twingate/twingate12.png)
+![](/assets/images/twingate/twingate12.png)
 
 **Step 10: Setting Rules**
 
 You can define rules for the resource via the "Ports" button or create an alias to the site using the "Alias" button. These rules can specify accessible ports, whether to block all TCP or UDP packets, or even allow users to ping the server. Once you're satisfied, click "Create Resource." 
-![](assets/images/twingate/twingate13.png)
+![](/assets/images/twingate/twingate13.png)
 
 **Step 11: Access Control**
 
 This is where you determine who can access the resource. By default, you'll have the "Everyone" group, but you can set up additional groups or specify services with access to the new resource. 
-![](assets/images/twingate/twingate14.png)
+![](/assets/images/twingate/twingate14.png)
 
 **Step 12: Congratulations**
 
 Congratulations! You've successfully added your first resource. If you ever need to review the details of the resource, simply click on it to view the associated information. 
-![](assets/images/twingate/twingate15.png)![](assets/images/twingate/twingate16.png)
+![](/assets/images/twingate/twingate15.png)![](//assets/images/twingate/twingate16.png)
 
 **Connecting to Twingate**
 
