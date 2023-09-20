@@ -1,8 +1,13 @@
 ---
 title: Burn in Candle - Traffic Analysis
-date: 2023-03-29 12:00:00 -0700
-categories: [traffic analysis]
-tags: [blueteam,wireshark,pcap,networking] # TAG names should always be lowercase
+date: 2023-08-21 12:00:00 -0700
+categories:
+  - traffic analysis
+tags:
+  - blueteam
+  - wireshark
+  - pcap
+  - networking
 ---
 ## Where have I been?
 ---
