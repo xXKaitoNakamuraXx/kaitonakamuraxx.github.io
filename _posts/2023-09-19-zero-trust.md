@@ -1,6 +1,6 @@
 ---
 title: Implementing Zero-Trust in my Homelab
-date: 2022-09-19 12:00:00 -0700
+date: 2023-09-19 12:00:00 -0700
 categories:
   - homelab
 tags:
