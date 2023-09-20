@@ -96,11 +96,11 @@ We can see a few interesting files we might want to check out:
 
 browsing to the first, we see a page that displays a directory tree we can access.
 
-![[assets/images/vulnhub/momentum2/owls.png]]
+![](assets/images/vulnhub/momentum2/owls.png)
 
 Browsing to the second, we see an uploads page.
 
-![[/assets/images/vulnhub/momentum2/dashboard.png]]
+![](/assets/images/vulnhub/momentum2/dashboard.png)
 
 Browsing to the last, we are able to download the file.
 
@@ -129,15 +129,15 @@ First lets get our PHP reverse shell from PentestMonkey and ready by adding our 
 
 Here is what needs to be added to the request as stated in the ajax.php.bak.
 
-![[/assets/images/vulnhub/momentum2/burp1.png]]
+![](/assets/images/vulnhub/momentum2/burp1.png)
 
 Send the request over to intruder to find out the last digit. Add the squiggle "s" to the end of the cookie and go to payloads.
 
-![[/assets/images/vulnhub/momentum2/request.png]]
+![](/assets/images/vulnhub/momentum2/request.png)
 
 Under payloads add uppercase letters to the list and hit start attack.
 
-![[/assets/images/vulnhub/momentum2/burp3.png]]
+![](/assets/images/vulnhub/momentum2/burp3.png)
 
 You should see a "1" in the response from "R" indicating that is the letter needed. Add the letter to the end of the cookie in the proxy tab. Forward the request and the shell should go through.
 
@@ -151,7 +151,7 @@ su athena
 
 As athena we can read the user flag in her home directory.
 
-![[/assets/images/vulnhub/momentum2/momentum-2-user-flag.png]]
+![](/assets/images/vulnhub/momentum2/momentum-2-user-flag.png)
 
 Now first thing I normally do, is see if I have sudo privilege to any files or binaries.
 
@@ -182,6 +182,6 @@ Finally I can gain a root shell by using.
 
 You now have a root shell and can retrieve the root flag.
 
-![[/assets/images/vulnhub/momentum2/momentum-2-root-flag.png]]
+![](/assets/images/vulnhub/momentum2/momentum-2-root-flag.png)
 
 This concludes the momentum series from Vulnhub! follow me on my socials for more!
