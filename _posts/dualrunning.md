@@ -27,14 +27,16 @@ Today I will be going over another [Malware Traffic Analysis](https://www.malwar
 
 # Investigation time!
 ---
-First thing I like to do is check if any files have been downloaded to see if anything sticks out to start. Luckily here we see some files:
-- insiderushings.com - port 8088 - Receipt-9650354.xls?evagk=2MyeEdhGPszYX 
-- buyer-remindment.com - port 8088 - file6.bin
-![](/assets/images/pcap-images/dualrunning/files.png)
+with this excersise we are given an image and a text file containing allerts that have poped up on our siem or dashboard. given this we can start looking in to the potential intrusion.
 
-pulling these files down from the PCAP I hash them using md5sum and sha256sum, and test them against  [VirusTotal](https://virustotal.com) and [Talos Inteligence](https://talosintelligence.com/) just as a quick scan to see if they are malicious.
+the very first thing we see is that there was an HTTP request to a non-standard port. going into wireshark we can filter for all the traffic going to and from that port with the following
+- `tcp.port == 8088`
+from here we can look at all the connections made using this port such as the following:
+- GET /wp-content/Receipt-9650354.xls?evagk=2MyeEdhGPszYX HTTP/1.1\r\n - insiderushings.com - port 8088 
+- GET /templates/file6.bin HTTP/1.1\r\n - buyer-remindment.com - port 8088
+we see in the alerts and in wireshark that the first file downloaded was an ms-excel file containing VBA code. this alone is not bad however the files content flags many signatures indicating this could be malicious. following this another file was downloaded showing signs of being a strain of the Dridex malware.
 
-
+if you are not familiar with Dridex malware feel free to read [this](). if you want the TL;DR it primarily targets financial services such as banks and payment. it will 
 
 # Conclusion
 ---
